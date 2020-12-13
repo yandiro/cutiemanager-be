@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc && node dist/stitch.js",
+    "dev": "nodemon -e ts  --exec \"npm run compile\""
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/yandiro/cutiemanager-be/issues"
   },
-  "homepage": "https://github.com/yandiro/cutiemanager-be#readme"
+  "homepage": "https://github.com/yandiro/cutiemanager-be#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.13",
+    "nodemon": "^2.0.6",
+    "typescript": "^4.1.3"
+  }
 }
