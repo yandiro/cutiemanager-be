@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc && node dist/stitch.js",
-    "dev": "nodemon -e ts  --exec \"npm run compile\""
+    "compile": "tsc && node dist/index.js",
+    "devts": "nodemon -e ts  --exec \"npm run compile\"",
+    "dev": "nodemon src/index.js"
+
   },
   "repository": {
     "type": "git",
@@ -20,9 +22,12 @@
   },
   "homepage": "https://github.com/yandiro/cutiemanager-be#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.11.8"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.10.3",
+    "ts-mongoose": "0.0.24",
     "@types/node": "^14.14.13",
     "nodemon": "^2.0.6",
     "typescript": "^4.1.3"

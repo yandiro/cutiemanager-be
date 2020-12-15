@@ -1,6 +1,3 @@
-// To avoid Cannot redeclare block-scoped variable 'express'.ts(2451)
-export {};
-
 const express = require('express');
 
 const routes = express.Router();
