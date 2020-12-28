@@ -106,3 +106,5 @@ dist
 
 # local add-on history
 .history
+
+.env
