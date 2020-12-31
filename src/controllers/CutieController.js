@@ -59,11 +59,19 @@ async function getListOfCutiesWithNamePicAndPositionOrderedByPositionDESC(req, r
 async function update(req, res) {
     // TODO Verify access (only from user who created)
     // const { user: userId } = req.headers;
-    console.log('BODY', req.body);
 
     const { updatedCutie } = req.body;
 
+    if (!updatedCutie) {
+        res.statusCode = 400;
+        const message = 'Expecting UPDATED values along _id inside an object called updatedCutie => updatedCutie: { CutieSchema }';
+
+        return res.json({ message });
+    }
+
     const cutie = await Cutie.findById(updatedCutie._id);
+
+    delete updatedCutie._id;
 
     Object.keys(updatedCutie).forEach((key) => {
         cutie[key] = updatedCutie[key];
