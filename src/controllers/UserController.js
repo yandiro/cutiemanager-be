@@ -6,14 +6,13 @@ async function store(req, res) {
 
     const { name, email } = req.headers;
 
-    await User.create(
-        {
-            name,
-            email
-        },
+    await User.create({
+        name,
+        email
+    },
         (err, instance) => {
             if (err) {
-                message = 'Error on creating registry';
+                message = err;
                 res.statusCode = 500;
             } else {
                 message = 'Created';

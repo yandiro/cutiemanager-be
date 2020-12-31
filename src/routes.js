@@ -10,6 +10,11 @@ routes.get('/', (req, res) => {
 })
 
 routes.post('/cuties', CutieController.store);
+routes.post('/cuties/update', CutieController.update);
+routes.get('/cuties/id/:cutieId', CutieController.getOneFully);
+routes.get('/cuties/fromuser', CutieController.getListOfCutiesWithNamePicAndPositionOrderedByPositionDESC);
+
+
 routes.post('/users', UserController.store);
 
 module.exports = routes;
