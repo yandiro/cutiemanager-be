@@ -64,7 +64,7 @@ async function update(req, res) {
 
     if (!updatedCutie) {
         res.statusCode = 400;
-        const message = 'Expecting UPDATED values along _id inside an object called updatedCutie => updatedCutie: { CutieSchema }';
+        const message = 'Expecting UPDATED keys:values (no need to send entire Schema) along with _id inside an object called updatedCutie => updatedCutie: { CutieSchema }';
 
         return res.json({ message });
     }
@@ -73,9 +73,7 @@ async function update(req, res) {
 
     delete updatedCutie._id;
 
-    Object.keys(updatedCutie).forEach((key) => {
-        cutie[key] = updatedCutie[key];
-    });
+    Object.assign(cutie, updatedCutie);
 
     await cutie.save()
         .then(() => res.statusCode = 204)
